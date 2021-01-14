@@ -15,4 +15,5 @@ public class Solution {
 
         n.forEach(System.out::println);
     }
+
 }
