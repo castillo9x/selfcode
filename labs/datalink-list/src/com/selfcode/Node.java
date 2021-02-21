@@ -26,9 +26,6 @@ public class Node<T extends Comparable<T>> {
 
     @Override
     public String toString() {
-        return "Node{" +
-                "data=" + data +
-                ", nextNode=" + nextNode +
-                '}';
+        return  "data=" + data;
     }
 }

@@ -6,16 +6,18 @@ public class Main {
 
     public static void main(String[] args) {
 
-        LinkedList2<String> names = new LinkedList2<>();
-        names.insert("name1");
-        names.insert("name2");
-        names.insert("name3");
-        names.insert("name4");
-        names.insert("name5");
+        LinkedList2<Integer> names = new LinkedList2<>();
+        names.insert(1);
+        names.insert(2);
+        names.insert(3);
+        names.insert(4);
+        names.insert(5);
 
         // Recorrer
         names.traverse();
 
+        System.out.println(names.getMiddleNode());
+/*
         // Romover uno que existe
         names.remove("name3");
         names.traverse();
@@ -62,7 +64,7 @@ public class Main {
         for (Person p: personList) {
             System.out.println(p);
         }
-
+*/
 
     }
 }

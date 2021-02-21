@@ -3,10 +3,24 @@ package com.selfcode;
 public class LinkedList2<T extends Comparable<T>> implements List2<T> {
 
     private Node<T> root;
-    private int numberOfTiems;
+    private int numberOfItems;
+
+    @Override
+    public Node<T> getMiddleNode() {
+
+        Node<T> slowPointer = this.root;
+        Node<T> fastPointer = this.root;
+
+        while(fastPointer.getNextNode() !=null && fastPointer.getNextNode().getNextNode() != null){
+            fastPointer = fastPointer.getNextNode().getNextNode();
+            slowPointer = slowPointer.getNextNode();
+        }
+        return slowPointer;
+    }
 
     @Override
     public void insert(T data) {
+        ++this.numberOfItems;
         if (root == null) {
             root = new Node<>(data);
         } else {
@@ -32,7 +46,7 @@ public class LinkedList2<T extends Comparable<T>> implements List2<T> {
     private void remove(T data, Node<T> actualNode, Node<T> nextNode) {
         while (nextNode.getNextNode() != null) {
             if (nextNode.getData().compareTo(data) == 0) {
-                numberOfTiems--;
+                numberOfItems--;
                 actualNode.setNextNode(nextNode.getNextNode());
                 nextNode = null;
                 return;
@@ -71,6 +85,6 @@ public class LinkedList2<T extends Comparable<T>> implements List2<T> {
 
     @Override
     public int size() {
-        return numberOfTiems;
+        return numberOfItems;
     }
 }
